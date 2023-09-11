@@ -62,7 +62,7 @@ pc.defineParameter(
 pc.defineParameter(
     "publicIPCount", "Number of public IP addresses",
     portal.ParameterType.INTEGER,1,
-    longDescription="Set the number of public IP addresses you will need for externally-published services (e.g., via a load balancer like MetalLB.",
+    longDescription="Set the number of public IP addresses you will need for externally-published services",
     advanced=True)
 pc.defineParameter(
     "sslCertType","SSL Certificate Type",
@@ -134,11 +134,6 @@ if params.publicIPCount > 8:
     perr = portal.ParameterWarning(
         "You cannot request more than 8 public IP addresses, at least not without creating your own modified version of this profile!",
         ["publicIPCount"])
-    pc.reportWarning(perr)
-if params.kubeDoMetalLB and params.publicIPCount < 1:
-    perr = portal.ParameterWarning(
-        "If you enable MetalLB, you must request at least one public IP address!",
-        ["kubeDoMetalLB","publicIPCount"])
     pc.reportWarning(perr)
 i = 0
 for x in params.sharedVlans:
