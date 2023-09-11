@@ -6,8 +6,8 @@ set -x
 ln -s /local/logs/setup.log /local/setup/setup-driver.log
 
 ALLNODESCRIPTS="setup-ssh.sh setup-disk-space.sh"
-HEADNODESCRIPTS="setup-mpi.sh setup-end.sh"
-WORKERNODESCRIPTS="setup-mpi.sh"
+HEADNODESCRIPTS="setup-mpi-perf.sh setup-end.sh"
+WORKERNODESCRIPTS="setup-mpi-perf.sh"
 
 export SRC=`dirname $0`
 cd $SRC
