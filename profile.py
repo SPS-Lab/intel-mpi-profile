@@ -215,7 +215,7 @@ sharedvlans = []
 for i in range(0,params.nodeCount):
     nodename = "node-%d" % (i,)
     node = RSpec.RawPC(nodename)
-    bs = node.Blockstore("bs", "/dataset")
+    bs = node.Blockstore("blockstore111", "/dataset")
     bs.size = "30GB"
     if params.nodeType:
         node.hardware_type = params.nodeType
